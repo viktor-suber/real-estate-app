@@ -7,14 +7,19 @@ const HomesList: React.FC = () => {
   const { homes } = appData || {};
 
   return (
-    <div className="py-5">
-      <div className="container">
-        <div className="row">
-            {homes.map((home: any) => {
-              return <div className="col-xl-4 col-lg-4 col-md-6"><HomeCard key={home.id} homeInfo={home.property} /></div>;
+    // <div className="py-5">
+    //   <div className="container">
+    //     <div className="row">
+    //         {homes.map((home: any) => {
+    //           return <div className="col-xl-4 col-lg-4 col-md-6"><HomeCard key={home.id} homeInfo={home.property} /></div>;
+    //         })}
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="card-columns">
+      {homes.map((home: any) => {
+              return <HomeCard key={home.id} homeInfo={home.property} />;
             })}
-        </div>
-      </div>
     </div>
   );
 };
