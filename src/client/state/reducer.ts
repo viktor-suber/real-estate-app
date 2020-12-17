@@ -25,6 +25,10 @@ const reducer = (state: AppState, action: Action): AppState => {
     };
   };
 
+  if (action.type === ActionTypes.FILTER_HOMES) {
+    return state;
+  }
+
   return state;
 };
 

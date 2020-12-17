@@ -9,8 +9,10 @@ const HomesList: React.FC = () => {
   return (
     <div className="card-columns py-4">
       {homes.map((home: any) => {
-              return <HomeCard key={home.id} homeInfo={home.property} price={home.price} />;
-            })}
+        return (
+          <HomeCard key={home.id} homeInfo={home.property} price={home.price} />
+        );
+      })}
     </div>
   );
 };

@@ -29,6 +29,10 @@ export const Provider = ({ children }: any): JSX.Element => {
       });
   }, [dispatch]);
 
+  const filterHomes = useCallback(() => {
+    dispatch({ type: ActionTypes.FILTER_HOMES});
+  }, [dispatch]);
+
   useEffect(() => {
     getHomes();
   }, [getHomes]);
