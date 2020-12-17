@@ -18,7 +18,7 @@ const HomesList: React.FC = () => {
     // </div>
     <div className="card-columns">
       {homes.map((home: any) => {
-              return <HomeCard key={home.id} homeInfo={home.property} />;
+              return <HomeCard key={home.id} homeInfo={home.property} price={home.price} />;
             })}
     </div>
   );
