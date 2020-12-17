@@ -11,6 +11,7 @@ export const Provider = ({ children }: any): JSX.Element => {
   const homesUrl = 'http://localhost:3001/api/homes';
 
   const getHomes = useCallback(() => {
+    dispatch({ type: ActionTypes.HOMES_LOADING });
     fetch(homesUrl)
       .then((response) => response.json())
       .then((response) => {
@@ -21,7 +22,10 @@ export const Provider = ({ children }: any): JSX.Element => {
         });
       })
       .catch((error) => {
-        console.log('ERROR', error);
+        dispatch({
+          type: ActionTypes.HOMES_LOAD_ERROR,
+          payload: error
+        });
       });
   }, [dispatch]);
 
