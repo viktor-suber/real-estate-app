@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import HomeCard from '../shared/components/HomeCard';
 import { Context } from '../state/context';
 
 const HomesList: React.FC = () => {
@@ -8,7 +9,7 @@ const HomesList: React.FC = () => {
   return (
     <>
       {homes.map((home: any) => {
-        return (<p key={home.id}>{JSON.stringify(home)}</p>);
+        return <HomeCard key={home.id} homeInfo={home.property} />;
       })}
     </>
   );

@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import './App.css';
 import { Context } from './state/context';
 import HomesList from './views/HomesList';
 
