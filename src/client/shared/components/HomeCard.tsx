@@ -9,7 +9,7 @@ const HomeCard: React.FC<HomeCardProps> = ({ homeInfo }) => {
   const {primaryImageUrl} = homeInfo;
 
   return (
-    <div className="card mb-4" style={{ width: "18rem" }}>
+    <div className="card mb-2">
       <img src={primaryImageUrl} className="card-img-top" alt="..." />
       <div className="card-body">
         <h5 className="card-title">Card title</h5>

@@ -11,7 +11,7 @@ const HomesList: React.FC = () => {
       <div className="container">
         <div className="row">
             {homes.map((home: any) => {
-              return <div className="col"><HomeCard key={home.id} homeInfo={home.property} /></div>;
+              return <div className="col-xl-4 col-lg-4 col-md-6"><HomeCard key={home.id} homeInfo={home.property} /></div>;
             })}
         </div>
       </div>
