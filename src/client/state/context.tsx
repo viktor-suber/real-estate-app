@@ -1,18 +1,39 @@
-import { createContext, useReducer } from "react";
-import { isJSDocTypeExpression, JsxEmit } from "typescript";
+import { createContext, useCallback, useEffect, useReducer } from "react";
+import { ActionTypes } from "./actions";
 import { initialState } from "./initialState";
 import reducer from "./reducer";
 
-export const AppContext = createContext<any>(initialState);
+export const Context = createContext<any>(initialState);
 
-export const AppProvider = ({ children }: any): JSX.Element => {
+export const Provider = ({ children }: any): JSX.Element => {
   const [appData, dispatch] = useReducer(reducer, initialState);
 
+  const homesUrl = 'http://localhost:3001/api/homes';
+
+  const getHomes = useCallback(() => {
+    fetch(homesUrl)
+      .then((response) => response.json())
+      .then((response) => {
+        const data = response;
+        dispatch({
+          type: ActionTypes.HOMES_LOADED,
+          payload: data
+        });
+      })
+      .catch((error) => {
+        console.log('ERROR', error);
+      });
+  }, [dispatch]);
+
+  useEffect(() => {
+    getHomes();
+  }, [getHomes]);
+
   return (
-    <AppContext.Provider
+    <Context.Provider
     value={{appData}}
   >
     { children }
-  </AppContext.Provider>
+  </Context.Provider>
   );
 };
