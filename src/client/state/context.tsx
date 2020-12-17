@@ -11,6 +11,7 @@ export const Provider = ({ children }: any): JSX.Element => {
   const homesUrl = 'http://localhost:3001/api/homes';
 
   const getHomes = useCallback(() => {
+    dispatch({ type: ActionTypes.HOMES_LOADING });
     fetch(homesUrl)
       .then((response) => response.json())
       .then((response) => {

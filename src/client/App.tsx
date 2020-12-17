@@ -4,15 +4,17 @@ import { Context } from './state/context';
 
 const App = () => {
 
-  const context = useContext(Context);
-  const { appData } = context;
+  const { appData } = useContext(Context);
+  const { loading, homes } = appData || {};
 
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          {JSON.stringify(appData)}
-        </p>
+        {loading ? <p>Loading...</p> : (
+          <p>
+            {JSON.stringify(homes)}
+          </p>
+        )}
       </header>
     </div>
   );
