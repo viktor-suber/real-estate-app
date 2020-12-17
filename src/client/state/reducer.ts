@@ -15,7 +15,16 @@ const reducer = (state: AppState, action: Action): AppState => {
       loading: false,
       homes: action.payload
     };
-  } 
+  }
+
+  if (action.type == ActionTypes.HOMES_LOAD_ERROR) {
+    return {
+      ...state,
+      loading: false,
+      error: action.payload
+    };
+  };
+
   return state;
 };
 

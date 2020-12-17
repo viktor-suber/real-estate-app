@@ -22,7 +22,10 @@ export const Provider = ({ children }: any): JSX.Element => {
         });
       })
       .catch((error) => {
-        console.log('ERROR', error);
+        dispatch({
+          type: ActionTypes.HOMES_LOAD_ERROR,
+          payload: error
+        });
       });
   }, [dispatch]);
 
