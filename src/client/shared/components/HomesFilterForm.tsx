@@ -1,27 +1,38 @@
-import React, { useContext } from "react";
+import { EventEmitter } from "events";
+import React, { useContext, useState } from "react";
+import { Typeahead } from 'react-bootstrap-typeahead';
 import { useForm } from "react-hook-form";
 import { Context } from "../../state/context";
 
 const HomesFilterForm: React.FC = () => {
-  const { filterHomes } = useContext(Context);
+  const { filterHomes, appData } = useContext(Context);
   const { handleSubmit, register } = useForm();
 
+  const [ location, setLocation ] = useState('');
+
+  const { locations } = appData || {};
+
   const onSubmit = (event: any) => {
-    filterHomes(event);
+    let selectionData;
+    if (location) {
+      const locationString = location.replace(/^"(.*)"$/, '$1');
+      selectionData = {selectedLocation: locationString, ...event};
+    } else {
+      selectionData = event;
+    }
+    filterHomes(selectionData);
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <div className="form-group form-row">
         <div className="col">
-        <label htmlFor="location">Location</label>
-          <input
-            type="text"
-            placeholder="Location"
-            name="location"
-            className="form-control"
-            ref={register}
-          />
+        <label htmlFor="city">Location</label>
+        <Typeahead options={locations} id="location" 
+        onChange={((selected) => {
+          setLocation(JSON.stringify(selected[0]));
+        })}
+        />
         </div>
         <div className="col">
         <label htmlFor="minPrice">Min Price</label>
