@@ -33,10 +33,10 @@ const reducer = (state: AppState, action: Action): AppState => {
     return {
       ...state,
       displayedHomes: getFilteredHomeIds(state.homes, action.payload),
-      minPrice: minPrice ? minPrice : 0,
-      maxPrice: maxPrice ? maxPrice : 0,
-      minBedrooms: minBedrooms ? minBedrooms : 0,
-      maxBedrooms: maxBedrooms ? maxBedrooms : 0
+      minPrice: minPrice ? minPrice : state.minPrice,
+      maxPrice: maxPrice ? maxPrice : state.maxPrice,
+      minBedrooms: minBedrooms ? minBedrooms : state.minBedrooms,
+      maxBedrooms: maxBedrooms ? maxBedrooms : state.maxBedrooms
     };
   }
 

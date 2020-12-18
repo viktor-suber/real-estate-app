@@ -6,6 +6,11 @@ const HomesList: React.FC = () => {
   const { appData } = useContext(Context);
   const { homes, minPrice, maxPrice, minBedrooms, maxBedrooms } = appData || {};
 
+  console.log('MIN PRICE', minPrice);
+  console.log('MAX PRICE', maxPrice);
+  console.log('MIN BEDROOMS', minBedrooms);
+  console.log('MAX BEDROOMS', maxBedrooms);
+
   return (
     <div className="card-columns py-4">
       {homes.map((home: any) => {
