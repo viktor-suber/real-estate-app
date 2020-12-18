@@ -6,7 +6,7 @@ interface URLParam {
 }
 
 
-const HomeInfo: React.FC = () => {
+const HomeDetails: React.FC = () => {
   const { homeId } = useParams<URLParam>();
 
   return (
@@ -16,4 +16,4 @@ const HomeInfo: React.FC = () => {
   );
 };
 
-export default HomeInfo;
+export default HomeDetails;

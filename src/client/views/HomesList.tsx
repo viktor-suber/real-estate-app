@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import HomeCard from "../shared/components/HomeCard";
-import HomeInfo from "../shared/components/HomeInfo";
+import HomeDetails from "../shared/components/HomeDetails";
 import { Context } from "../state/context";
 
 const HomesList: React.FC = () => {
@@ -20,7 +20,7 @@ const HomesList: React.FC = () => {
     <>
       <Switch>
         <Route path={`${match.path}/:homeId`}>
-          <HomeInfo />
+          <HomeDetails />
         </Route>
         <Route path={match.path}>
           <div className="card-columns py-4">
