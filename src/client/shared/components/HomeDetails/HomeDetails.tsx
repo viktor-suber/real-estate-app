@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { Context } from "../../state/context";
+import { Context } from "../../../state/context";
+import DetailsGrid from "./DetailsGrid";
 
 interface URLParam {
   homeId: string;
@@ -22,22 +23,7 @@ const HomeDetails: React.FC = () => {
   });
 
   return (
-    <>
-      {currentHome ? (
-        <div className="container py-4">
-          <div className="row">
-            <div className="col">
-              <img src={currentHome.property.primaryImageUrl} className="img-fluid" alt="..." />
-            </div>
-            <div className="col">
-              <p>{currentHome.property.description}</p>
-            </div>
-          </div>
-        </div>
-      ) : (
-        "Error"
-      )}
-    </>
+    <>{currentHome ? <DetailsGrid currentHome={currentHome} /> : "Error"}</>
   );
 };
 

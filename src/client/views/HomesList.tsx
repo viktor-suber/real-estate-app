@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
 import HomeCard from "../shared/components/HomeCard";
-import HomeDetails from "../shared/components/HomeDetails";
+import HomeDetails from "../shared/components/HomeDetails/HomeDetails";
 import { Context } from "../state/context";
 
 const HomesList: React.FC = () => {
@@ -38,9 +38,8 @@ const HomesList: React.FC = () => {
                   !selectedLocation)
               ) {
                 return (
-                  <Link to={`${match.url}/${home.id}`}>
+                  <Link to={`${match.url}/${home.id}`} key={home.id}>
                     <HomeCard
-                      key={home.id}
                       homeInfo={home.property}
                       price={home.price}
                     />
