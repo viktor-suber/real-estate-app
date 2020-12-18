@@ -1,4 +1,3 @@
-import { EventEmitter } from "events";
 import React, { useContext, useState } from "react";
 import { Typeahead } from 'react-bootstrap-typeahead';
 import { useForm } from "react-hook-form";
