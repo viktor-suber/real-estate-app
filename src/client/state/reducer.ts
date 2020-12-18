@@ -27,12 +27,12 @@ const reducer = (state: AppState, action: Action): AppState => {
   };
 
   if (action.type === ActionTypes.FILTER_HOMES) {
-    console.log(getFilteredHomeIds(state.homes, action.payload));
-    
+
     const { minPrice, maxPrice, minBedrooms, maxBedrooms } = action.payload || null;
 
     return {
       ...state,
+      displayedHomes: getFilteredHomeIds(state.homes, action.payload),
       minPrice: minPrice ? minPrice : 0,
       maxPrice: maxPrice ? maxPrice : 0,
       minBedrooms: minBedrooms ? minBedrooms : 0,
