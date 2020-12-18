@@ -26,8 +26,15 @@ const reducer = (state: AppState, action: Action): AppState => {
   };
 
   if (action.type === ActionTypes.FILTER_HOMES) {
-    console.log('PAYLOAD', action.payload);
-    return state;
+    const { minPrice, maxPrice, minBedrooms, maxBedrooms } = action.payload || null;
+
+    return {
+      ...state,
+      minPrice: minPrice ? minPrice : 0,
+      maxPrice: maxPrice ? maxPrice : 0,
+      minBedrooms: minBedrooms ? minBedrooms : 0,
+      maxBedrooms: maxBedrooms ? maxBedrooms : 0
+    };
   }
 
   return state;
