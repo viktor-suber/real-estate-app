@@ -1,4 +1,3 @@
-import { getFilteredHomeIds } from "../shared/methods/getFilteredHomeIds";
 import { Action, ActionTypes } from "./actions";
 import { AppState } from "./AppState"
 
@@ -32,7 +31,6 @@ const reducer = (state: AppState, action: Action): AppState => {
 
     return {
       ...state,
-      displayedHomes: getFilteredHomeIds(state.homes, action.payload),
       minPrice: minPrice ? minPrice : state.minPrice,
       maxPrice: maxPrice ? maxPrice : state.maxPrice,
       minBedrooms: minBedrooms ? minBedrooms : state.minBedrooms,
