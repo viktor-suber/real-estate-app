@@ -5,8 +5,9 @@ export const initialState: AppState = {
   error: null,
   homes: [],
   displayedHomes: [],
+  // TODO - MAKE MAXIMUMS DYNAMIC
   minPrice: 0,
-  maxPrice: 0,
+  maxPrice: 5000000,
   minBedrooms: 0,
-  maxBedrooms: 0
+  maxBedrooms: 20
 };
