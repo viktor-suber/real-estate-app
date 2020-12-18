@@ -7,7 +7,7 @@ const HomesFilterForm: React.FC = () => {
   const { filterHomes, appData } = useContext(Context);
   const { handleSubmit, register } = useForm();
 
-  const { states } = appData || {};
+  const { locations } = appData || {};
 
   const onSubmit = (event: any) => {
     filterHomes(event);
@@ -17,8 +17,8 @@ const HomesFilterForm: React.FC = () => {
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <div className="form-group form-row">
         <div className="col">
-        <label htmlFor="city">State</label>
-        <Typeahead options={states} />
+        <label htmlFor="city">Location</label>
+        <Typeahead options={locations} />
         </div>
         <div className="col">
         <label htmlFor="minPrice">Min Price</label>

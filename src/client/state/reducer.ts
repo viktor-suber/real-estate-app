@@ -12,10 +12,14 @@ const reducer = (state: AppState, action: Action): AppState => {
 
   if (action.type === ActionTypes.HOMES_LOADED) {
 
-    const states = action.payload.reduce((seed: any, current: any) => {
-      if (!seed.includes(current.property.address.state)) {
-        seed.push(current.property.address.state);
-      };
+    const locations = action.payload.reduce((seed: any, current: any) => {
+      const stateName = current.property.address.state;
+      const location = `${current.property.address.city}, ${stateName}`;
+      if (!seed.includes(stateName)) {
+        seed.push(stateName);
+      }; if (!seed.includes(location)) {
+        seed.push(location);
+      }
       return seed;
     }, []);
 
@@ -23,7 +27,7 @@ const reducer = (state: AppState, action: Action): AppState => {
       ...state,
       loading: false,
       homes: action.payload,
-      states: states
+      locations: locations
     };
   }
 

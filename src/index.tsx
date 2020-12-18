@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './client/App';
 import reportWebVitals from './reportWebVitals';
 import './index.scss';
+import 'react-bootstrap-typeahead/css/Typeahead.css';
 import { Provider } from './client/state/context';
 
 ReactDOM.render(
