@@ -1,3 +1,4 @@
+import { getFilteredHomeIds } from "../shared/methods/getFilteredHomeIds";
 import { Action, ActionTypes } from "./actions";
 import { AppState } from "./AppState"
 
@@ -26,6 +27,8 @@ const reducer = (state: AppState, action: Action): AppState => {
   };
 
   if (action.type === ActionTypes.FILTER_HOMES) {
+    console.log(getFilteredHomeIds(state.homes, action.payload));
+    
     const { minPrice, maxPrice, minBedrooms, maxBedrooms } = action.payload || null;
 
     return {
