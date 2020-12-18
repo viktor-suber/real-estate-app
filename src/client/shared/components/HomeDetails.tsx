@@ -11,10 +11,10 @@ const HomeDetails: React.FC = () => {
   const { homeId } = useParams<URLParam>();
 
   const { homes } = appData || {};
-  let currentHome;
-  
+  let currentHome: any;
+
   homes.every((home: any) => {
-    if (home.id === parseInt(homeId))  {
+    if (home.id === parseInt(homeId)) {
       currentHome = home;
       return false;
     }
@@ -23,7 +23,20 @@ const HomeDetails: React.FC = () => {
 
   return (
     <>
-      info { JSON.stringify(currentHome) }
+      {currentHome ? (
+        <div className="container py-4">
+          <div className="row">
+            <div className="col">
+              <img src={currentHome.property.primaryImageUrl} className="img-fluid" alt="..." />
+            </div>
+            <div className="col">
+              <p>{currentHome.property.description}</p>
+            </div>
+          </div>
+        </div>
+      ) : (
+        "Error"
+      )}
     </>
   );
 };
