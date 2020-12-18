@@ -17,13 +17,26 @@ const reducer = (state: AppState, action: Action): AppState => {
     };
   }
 
-  if (action.type == ActionTypes.HOMES_LOAD_ERROR) {
+  if (action.type === ActionTypes.HOMES_LOAD_ERROR) {
     return {
       ...state,
       loading: false,
       error: action.payload
     };
   };
+
+  if (action.type === ActionTypes.FILTER_HOMES) {
+
+    const { minPrice, maxPrice, minBedrooms, maxBedrooms } = action.payload || null;
+
+    return {
+      ...state,
+      minPrice: minPrice ? minPrice : state.minPrice,
+      maxPrice: maxPrice ? maxPrice : state.maxPrice,
+      minBedrooms: minBedrooms ? minBedrooms : state.minBedrooms,
+      maxBedrooms: maxBedrooms ? maxBedrooms : state.maxBedrooms
+    };
+  }
 
   return state;
 };
