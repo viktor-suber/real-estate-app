@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
+import { Typeahead } from 'react-bootstrap-typeahead';
 import { useForm } from "react-hook-form";
 import { Context } from "../../state/context";
 
 const HomesFilterForm: React.FC = () => {
-  const { filterHomes } = useContext(Context);
+  const { filterHomes, appData } = useContext(Context);
   const { handleSubmit, register } = useForm();
+
+  const { states } = appData || {};
 
   const onSubmit = (event: any) => {
     filterHomes(event);
@@ -14,14 +17,8 @@ const HomesFilterForm: React.FC = () => {
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <div className="form-group form-row">
         <div className="col">
-        <label htmlFor="city">City</label>
-          <input
-            type="text"
-            placeholder="City"
-            name="city"
-            className="form-control"
-            ref={register}
-          />
+        <label htmlFor="city">State</label>
+        <Typeahead options={states} />
         </div>
         <div className="col">
         <label htmlFor="minPrice">Min Price</label>

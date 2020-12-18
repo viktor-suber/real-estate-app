@@ -12,15 +12,18 @@ const reducer = (state: AppState, action: Action): AppState => {
 
   if (action.type === ActionTypes.HOMES_LOADED) {
 
-    const cities = action.payload.map((home: any) => {
-      return home.property.address.city;
+    const states = action.payload.reduce((seed: any, current: any) => {
+      if (!seed.includes(current.property.address.state)) {
+        seed.push(current.property.address.state);
+      };
+      return seed;
     }, []);
 
     return {
       ...state,
       loading: false,
       homes: action.payload,
-      cities: cities
+      states: states
     };
   }
 

@@ -2,7 +2,7 @@ export interface AppState {
   loading: boolean;
   error: any;
   homes: any[];
-  cities: any[];
+  states: any[];
   minPrice: number;
   maxPrice: number;
   minBedrooms: number;
