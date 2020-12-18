@@ -29,8 +29,8 @@ export const Provider = ({ children }: any): JSX.Element => {
       });
   }, [dispatch]);
 
-  const filterHomes = useCallback(() => {
-    dispatch({ type: ActionTypes.FILTER_HOMES});
+  const filterHomes = useCallback((filterParams) => {
+    dispatch({ type: ActionTypes.FILTER_HOMES, payload: filterParams});
   }, [dispatch]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const Provider = ({ children }: any): JSX.Element => {
 
   return (
     <Context.Provider
-    value={{appData}}
+    value={{appData, filterHomes}}
   >
     { children }
   </Context.Provider>

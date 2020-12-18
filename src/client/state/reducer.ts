@@ -17,7 +17,7 @@ const reducer = (state: AppState, action: Action): AppState => {
     };
   }
 
-  if (action.type == ActionTypes.HOMES_LOAD_ERROR) {
+  if (action.type === ActionTypes.HOMES_LOAD_ERROR) {
     return {
       ...state,
       loading: false,
@@ -26,6 +26,7 @@ const reducer = (state: AppState, action: Action): AppState => {
   };
 
   if (action.type === ActionTypes.FILTER_HOMES) {
+    console.log('PAYLOAD', action.payload);
     return state;
   }
 
