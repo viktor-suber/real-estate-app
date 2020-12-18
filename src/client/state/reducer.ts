@@ -1,3 +1,4 @@
+import { getSyntheticTrailingComments } from "typescript";
 import { Action, ActionTypes } from "./actions";
 import { AppState } from "./AppState"
 
@@ -10,10 +11,16 @@ const reducer = (state: AppState, action: Action): AppState => {
   }
 
   if (action.type === ActionTypes.HOMES_LOADED) {
+
+    const cities = action.payload.map((home: any) => {
+      return home.property.address.city;
+    }, []);
+
     return {
       ...state,
       loading: false,
-      homes: action.payload
+      homes: action.payload,
+      cities: cities
     };
   }
 

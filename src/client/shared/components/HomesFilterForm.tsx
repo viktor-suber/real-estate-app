@@ -14,11 +14,11 @@ const HomesFilterForm: React.FC = () => {
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <div className="form-group form-row">
         <div className="col">
-        <label htmlFor="location">Location</label>
+        <label htmlFor="city">City</label>
           <input
             type="text"
-            placeholder="Location"
-            name="location"
+            placeholder="City"
+            name="city"
             className="form-control"
             ref={register}
           />
