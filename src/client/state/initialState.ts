@@ -4,7 +4,6 @@ export const initialState: AppState = {
   loading: false,
   error: null,
   homes: [],
-  displayedHomes: [],
   // TODO - MAKE MAXIMUMS DYNAMIC
   minPrice: 0,
   maxPrice: 5000000,
