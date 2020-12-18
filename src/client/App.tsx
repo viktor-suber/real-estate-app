@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Context } from './state/context';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './shared/components/Header';
 import HomesList from './views/HomesList';
 
@@ -13,10 +14,17 @@ const App: React.FC = () => {
         {loading ? <p>Loading...</p> : (
           <>
             {!error ? (
-              <>
-              <Header/>
-            <HomesList/>
-            </>
+
+              <Router>
+              <header><Header/></header>
+              <main>
+                <Switch>
+                  <Route path="/homes">
+                    <HomesList />
+                  </Route>
+                </Switch>
+              </main>
+              </Router>
             ) : `An error occurred: ${error}`}
           </>
         )}
