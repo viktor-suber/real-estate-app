@@ -18,7 +18,7 @@ const HomesFilterForm: React.FC = () => {
       <div className="form-group form-row">
         <div className="col">
         <label htmlFor="city">Location</label>
-        <Typeahead options={locations} />
+        <Typeahead options={locations} id="location"/>
         </div>
         <div className="col">
         <label htmlFor="minPrice">Min Price</label>

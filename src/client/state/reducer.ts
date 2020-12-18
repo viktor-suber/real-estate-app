@@ -1,4 +1,3 @@
-import { getSyntheticTrailingComments } from "typescript";
 import { Action, ActionTypes } from "./actions";
 import { AppState } from "./AppState"
 
