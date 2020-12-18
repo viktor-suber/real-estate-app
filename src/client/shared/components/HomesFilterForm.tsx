@@ -9,7 +9,7 @@ const HomesFilterForm: React.FC = () => {
 
   const [ location, setLocation ] = useState('');
 
-  const { locations } = appData || {};
+  const { locations } = appData || [];
 
   const onSubmit = (event: any) => {
     let selectionData;
