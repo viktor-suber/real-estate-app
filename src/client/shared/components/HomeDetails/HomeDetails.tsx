@@ -23,7 +23,9 @@ const HomeDetails: React.FC = () => {
   });
 
   return (
-    <>{currentHome ? <DetailsGrid currentHome={currentHome} /> : "Error"}</>
+    <>{currentHome ? (
+      <DetailsGrid currentHome={currentHome}/>
+      )  : "Error"}</>
   );
 };
 

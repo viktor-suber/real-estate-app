@@ -23,7 +23,12 @@ const HomesList: React.FC = () => {
           <HomeDetails />
         </Route>
         <Route path={match.path}>
-          <div className="card-columns py-4">
+          <h1 className="display-5 text-center py-4">
+            Viewing Homes ${selectedMinPrice} to ${selectedMaxPrice},{" "}
+            {selectedMinBedrooms} to {selectedMaxBedrooms} Bedrooms
+            {selectedLocation ? ` in ${selectedLocation}` : null}
+          </h1>
+          <div className="card-columns">
             {homes.map((home: any) => {
               const { city, state } = home.property.address;
 
@@ -39,10 +44,7 @@ const HomesList: React.FC = () => {
               ) {
                 return (
                   <Link to={`${match.url}/${home.id}`} key={home.id}>
-                    <HomeCard
-                      homeInfo={home.property}
-                      price={home.price}
-                    />
+                    <HomeCard homeInfo={home.property} price={home.price} />
                   </Link>
                 );
               }

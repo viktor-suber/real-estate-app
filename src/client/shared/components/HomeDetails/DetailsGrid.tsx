@@ -27,7 +27,11 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
   const { addressLine1, addressLine2, city, state, zip } = address;
 
   return (
-    <div className="container py-4">
+    <>
+    <div className="container h1 p-0 my-4 home-details-title">
+      {addressLine1} {city}, {state} - ${price}
+    </div>
+      <div className="container home-details-container p-4">
       <div className="row">
         <div className="col">
           <img src={primaryImageUrl} className="details-img" alt="..." />
@@ -118,7 +122,8 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   );
 };
 
