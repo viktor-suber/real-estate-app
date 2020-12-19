@@ -22,4 +22,17 @@ $body-bg: $light-periwinkle;
   @include media-breakpoint-only(sm) {
     column-count: 2;
   }
-};
+}
+
+.home-card-img {
+    position: relative;
+    z-index: 1;
+}
+
+.card-price {
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  background-color: $secondary;
+  color: $body-color;
+}
