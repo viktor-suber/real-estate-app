@@ -1,18 +1,22 @@
 $pewter-blue: #9dbcc4;
 $light-periwinkle: #C7CCDB;
-$slate-gray: #707D94;
+$charcoal: #343A45;
 $dark-blue-gray: #5C5D8D;
-$yellow: #FCD46F; 
+$yellow: #FCD46F;
+$queen-pink: #E8C2CA;
 
 $primary: $dark-blue-gray;
 $secondary: $yellow;
 
 $body-bg: $light-periwinkle;
+$input-bg: darken($charcoal, 5%);
+$input-border-width: 0;
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
 .navbar {
-  background-color: $slate-gray;
+  background-color: $charcoal;
+  color: $queen-pink;
 }
 
 .card-columns {
@@ -26,6 +30,7 @@ $body-bg: $light-periwinkle;
 
 .home-card {
   color: $body-color;
+  // border: 1px solid $charcoal;
 }
 
 .card-price {
