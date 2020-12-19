@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Typeahead } from 'react-bootstrap-typeahead';
+import { Typeahead, TypeaheadInputSingle } from 'react-bootstrap-typeahead';
 import { useForm } from "react-hook-form";
 import { Context } from "../../state/context";
 import Slider from "./Slider";
@@ -50,6 +50,12 @@ const HomesFilterForm: React.FC = () => {
         onChange={((selected) => {
           setLocation(JSON.stringify(selected[0]));
         })}
+        renderInput={(inputProps) => (
+          <TypeaheadInputSingle
+            {...inputProps}
+            className="filter-input"
+            />
+        )}
         />
         </div>
         <div className="col mx-2">
