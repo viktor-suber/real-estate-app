@@ -50,85 +50,10 @@ const HomesFilterForm: React.FC = () => {
         <div className="col mx-2">
           <label>Price</label>
           <Slider type={'price'} min={minPrice} max={maxPrice} step={10000} handleSliderValues={handleSliderValues} />
-          {/* <div className="slider d-flex flex-column align-items-center">
-          <Range
-          step={10000}
-          min={minPrice}
-          max={maxPrice}
-          values={priceValues}
-          onChange={(values) => setPriceValues(values)}
-          renderTrack={({ props, children }) => (
-            <div
-              {...props}
-              style={{
-                ...props.style,
-                height: '5px',
-                width: '100%',
-                backgroundColor: '#A7A2A9'
-              }}
-            >
-              {children}
-            </div>
-          )}
-          renderThumb={({ props }) => (
-            <div
-              {...props}
-              style={{
-                ...props.style,
-                height: '40px',
-                width: '8px',
-                backgroundColor: '#FCD46F'
-              }}
-              
-            />
-          )}
-        />
-        <br />
-        <output className="price-range">
-          <span className="h5">${priceValues[0]}</span> to <span className="h5">${priceValues[1]}</span>
-        </output>
-          </div> */}
         </div>
         <div className="col mx-2">
         <label>Bedrooms</label>
-        <div className="slider d-flex flex-column align-items-center">
-        <Range
-          step={1}
-          min={minBedrooms}
-          max={maxBedrooms}
-          values={bedValues}
-          onChange={(values) => setBedValues(values)}
-          renderTrack={({ props, children }) => (
-            <div
-              {...props}
-              style={{
-                ...props.style,
-                height: '5px',
-                width: '100%',
-                backgroundColor: '#A7A2A9'
-              }}
-            >
-              {children}
-            </div>
-          )}
-          renderThumb={({ props }) => (
-            <div
-              {...props}
-              style={{
-                ...props.style,
-                height: '40px',
-                width: '8px',
-                backgroundColor: '#FCD46F'
-              }}
-              
-            />
-          )}
-        />
-        <br />
-        <output className="bedrooms-range">
-        <span className="h5">{bedValues[0]}</span> to <span className="h5">{bedValues[1]} Bedrooms</span>
-        </output>
-        </div>
+        <Slider type={'bedrooms'} min={minBedrooms} max={maxBedrooms} step={1} handleSliderValues={handleSliderValues} />
         </div>
         <button type="submit" className="btn btn-secondary">Search</button>
       </div>
