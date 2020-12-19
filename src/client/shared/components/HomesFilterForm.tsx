@@ -9,9 +9,10 @@ const HomesFilterForm: React.FC = () => {
   const { handleSubmit, register } = useForm();
 
   const [ location, setLocation ] = useState('');
-  const [ values, setValues] = useState([0, 5000000]);
 
-  const { locations } = appData || [];
+  const { locations, minPrice, maxPrice, minBedrooms, maxBedrooms } = appData || {};
+
+  const [ priceValues, setPriceValues] = useState([minPrice, maxPrice]);
 
   const onSubmit = (event: any) => {
     let selectionData;
@@ -19,14 +20,14 @@ const HomesFilterForm: React.FC = () => {
       const locationString = location.replace(/^"(.*)"$/, '$1');
       selectionData = {selectedLocation: locationString, ...event};
     } else {
-      selectionData = event;
+      selectionData = {...event, selectedMinPrice: priceValues[0], selectedMaxPrice: priceValues[1]};
     }
     filterHomes(selectionData);
   };
 
   return (
-    <>
-    <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+      <>
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <div className="form-group form-row">
         <div className="col">
         <label htmlFor="city">Location</label>
@@ -37,57 +38,13 @@ const HomesFilterForm: React.FC = () => {
         />
         </div>
         <div className="col">
-        <label htmlFor="selectedMinPrice">Min Price</label>
-          <input
-            type="text"
-            placeholder="Min Price"
-            name="selectedMinPrice"
-            className="form-control"
-            ref={register}
-          />
-        </div>
-        <div className="col">
-        <label htmlFor="selectedMaxPrice">Max Price</label>
-          <input
-            type="text"
-            placeholder="Max Price"
-            name="selectedMaxPrice"
-            className="form-control"
-            ref={register}
-          />
-        </div>
-        <div className="col">
-        <label htmlFor="selectedMinBedrooms">Min Bedrooms</label>
-          <input
-            type="text"
-            placeholder="Min Bedrooms"
-            name="selectedMinBedooms"
-            className="form-control"
-            ref={register}
-          />
-        </div>
-        <div className="col">
-        <label htmlFor="selectedMaxBedrooms">Max Bedrooms</label>
-          <input
-            type="text"
-            placeholder="Max Bedrooms"
-            name="selectedMaxBedrooms"
-            className="form-control"
-            ref={register}
-          />
-        </div>
-      <div className="col">
-        <button type="submit" className="btn btn-secondary">Search</button>
-      </div>
-      </div>
-    </form>
-    <br />
+          <label>Price</label>
           <Range
-          step={5000}
-          min={0}
-          max={5000000}
-          values={values}
-          onChange={(values) => setValues(values)}
+          step={10000}
+          min={minPrice}
+          max={maxPrice}
+          values={priceValues}
+          onChange={(values) => setPriceValues(values)}
           renderTrack={({ props, children }) => (
             <div
               {...props}
@@ -114,7 +71,55 @@ const HomesFilterForm: React.FC = () => {
             />
           )}
         />
-    </>
+        <br />
+        <output style={{ marginTop: '30px' }}>
+          {priceValues[0]} - {priceValues[1]}
+        </output>
+        {/* <label htmlFor="selectedMinPrice">Min Price</label>
+          <input
+            type="text"
+            placeholder="Min Price"
+            name="selectedMinPrice"
+            className="form-control"
+            ref={register}
+          />
+        </div>
+        <div className="col">
+        <label htmlFor="selectedMaxPrice">Max Price</label>
+          <input
+            type="text"
+            placeholder="Max Price"
+            name="selectedMaxPrice"
+            className="form-control"
+            ref={register}
+          /> */}
+        </div>
+        <div className="col">
+        <label htmlFor="selectedMinBedrooms">Min Bedrooms</label>
+          <input
+            type="text"
+            placeholder="Min Bedrooms"
+            name="selectedMinBedooms"
+            className="form-control"
+            ref={register}
+          />
+        </div>
+        <div className="col">
+        <label htmlFor="selectedMaxBedrooms">Max Bedrooms</label>
+          <input
+            type="text"
+            placeholder="Max Bedrooms"
+            name="selectedMaxBedrooms"
+            className="form-control"
+            ref={register}
+          />
+        </div>
+      <div className="col">
+        <button type="submit" className="btn btn-secondary">Search</button>
+      </div>
+      </div>
+    </form>
+      </>
   );
 };
 
