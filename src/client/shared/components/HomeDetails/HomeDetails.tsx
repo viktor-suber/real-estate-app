@@ -24,7 +24,9 @@ const HomeDetails: React.FC = () => {
 
   return (
     <>{currentHome ? (
+      <main className="mx-xxl-6 mx-xl-5 mx-md-4 mx-sm-3 mx-2">
       <DetailsGrid currentHome={currentHome}/>
+      </main>
       )  : "Error"}</>
   );
 };
