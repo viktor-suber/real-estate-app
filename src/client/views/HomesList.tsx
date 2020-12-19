@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
-import Header from "../shared/components/Header";
 import HomeCard from "../shared/components/HomeCard";
 import HomeDetails from "../shared/components/HomeDetails/HomeDetails";
 import { Context } from "../state/context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 
 const HomesList: React.FC = () => {
   const { appData } = useContext(Context);

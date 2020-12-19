@@ -26,6 +26,10 @@ $input-border-width: 0;
   margin-right: 4px;
 }
 
+.range {
+  margin-top: 12px;
+}
+
 .card-columns {
   @include media-breakpoint-only(md) {
     column-count: 2;

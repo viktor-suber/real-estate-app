@@ -1,3 +1,5 @@
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
 interface HomeCardProps {
@@ -30,6 +32,9 @@ const HomeCard: React.FC<HomeCardProps> = ({ homeInfo, price }) => {
           {addressLine1} {city}, {state}
         </h4>
         <p>{description}</p>
+        <div className="d-flex justify-content-end mb-3">
+        <button className="btn btn-primary">Learn More <FontAwesomeIcon icon={faArrowRight} size="sm"/></button>
+        </div>
         <div className="row border-top pt-3 text-center">
           <div className="col-sm">
             <span className="h5">{numberBedrooms}</span>
