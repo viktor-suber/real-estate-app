@@ -74,7 +74,7 @@ const HomesFilterForm: React.FC = () => {
           />
         </div>
       </div>
-      <button type="submit" className="btn btn-primary">Search</button>
+      <button type="submit" className="btn btn-secondary">Search</button>
     </form>
   );
 };

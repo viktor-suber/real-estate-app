@@ -1,4 +1,23 @@
+$pewter-blue: #9dbcc4;
+$light-periwinkle: #C7CCDB;
+$charcoal: #343A45;
+$dark-blue-gray: #5C5D8D;
+$yellow: #FCD46F;
+$queen-pink: #E8C2CA;
+
+$primary: $dark-blue-gray;
+$secondary: $yellow;
+
+$body-bg: $light-periwinkle;
+$input-bg: darken($charcoal, 5%);
+$input-border-width: 0;
+
 @import "node_modules/bootstrap/scss/bootstrap";
+
+.navbar {
+  background-color: $charcoal;
+  color: $queen-pink;
+}
 
 .card-columns {
   @include media-breakpoint-only(md) {
@@ -7,4 +26,30 @@
   @include media-breakpoint-only(sm) {
     column-count: 2;
   }
-};
+}
+
+.home-card {
+  color: $body-color;
+  // border: 1px solid $charcoal;
+}
+
+.card-price {
+  position: absolute;
+  z-index: 2;
+  right: 0px;
+  background-color: $secondary;
+}
+
+.home-card-img {
+    position: relative;
+    z-index: 1;
+}
+
+// .home-card-title {
+//   white-space: nowrap;
+//   text-overflow: ellipsis;
+// }
+
+.details-img {
+  width: 100%;
+}

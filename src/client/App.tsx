@@ -17,6 +17,7 @@ const App: React.FC = () => {
 
               <Router>
               <header><Header/></header>
+              <div className="mx-xxl-6 mx-xl-5 mx-md-4 mx-sm-3 mx-2">
               <main>
                 <Switch>
                   <Route path="/homes">
@@ -24,6 +25,7 @@ const App: React.FC = () => {
                   </Route>
                 </Switch>
               </main>
+              </div>
               </Router>
             ) : `An error occurred: ${error}`}
           </>
