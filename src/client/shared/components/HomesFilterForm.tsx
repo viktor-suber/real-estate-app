@@ -3,6 +3,7 @@ import { Typeahead } from 'react-bootstrap-typeahead';
 import { useForm } from "react-hook-form";
 import { Context } from "../../state/context";
 import { Range } from 'react-range';
+import Slider from "./Slider";
 
 const HomesFilterForm: React.FC = () => {
   const { filterHomes, appData } = useContext(Context);
@@ -14,6 +15,14 @@ const HomesFilterForm: React.FC = () => {
 
   const [ priceValues, setPriceValues] = useState([minPrice, maxPrice]);
   const [ bedValues, setBedValues ] = useState([minBedrooms, maxBedrooms]);
+
+  const handleSliderValues = (values: number[], type: string) => {
+    if (type === 'price') {
+      setPriceValues(values);
+    } if (type === 'bedrooms') {
+      setBedValues(values);
+    }
+  };
 
   const onSubmit = (event: any) => {
     let selectionData;
@@ -40,7 +49,8 @@ const HomesFilterForm: React.FC = () => {
         </div>
         <div className="col mx-2">
           <label>Price</label>
-          <div className="slider d-flex flex-column align-items-center">
+          <Slider type={'price'} min={minPrice} max={maxPrice} step={10000} handleSliderValues={handleSliderValues} />
+          {/* <div className="slider d-flex flex-column align-items-center">
           <Range
           step={10000}
           min={minPrice}
@@ -77,7 +87,7 @@ const HomesFilterForm: React.FC = () => {
         <output className="price-range">
           <span className="h5">${priceValues[0]}</span> to <span className="h5">${priceValues[1]}</span>
         </output>
-          </div>
+          </div> */}
         </div>
         <div className="col mx-2">
         <label>Bedrooms</label>
