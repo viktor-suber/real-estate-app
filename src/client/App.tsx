@@ -3,6 +3,7 @@ import { Context } from './state/context';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './shared/components/Header';
 import HomesList from './views/HomesList';
+import HomeDetails from './shared/components/HomeDetails/HomeDetails';
 
 const App: React.FC = () => {
 
@@ -21,6 +22,9 @@ const App: React.FC = () => {
               <main>
                 <Switch>
                   <Route path="/homes">
+                    <HomesList />
+                  </Route>
+                  <Route path="/">
                     <HomesList />
                   </Route>
                 </Switch>

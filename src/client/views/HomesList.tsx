@@ -43,7 +43,7 @@ const HomesList: React.FC = () => {
                   !selectedLocation)
               ) {
                 return (
-                  <Link to={`${match.url}/${home.id}`} key={home.id}>
+                  <Link to={`homes/${home.id}`} key={home.id}>
                     <HomeCard homeInfo={home.property} price={home.price} />
                   </Link>
                 );
