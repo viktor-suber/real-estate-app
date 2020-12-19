@@ -1,4 +1,19 @@
+$pewter-blue: #9dbcc4;
+$light-periwinkle: #C7CCDB;
+$slate-gray: #707D94;
+$dark-blue-gray: #5C5D8D;
+$yellow: #FCD46F; 
+
+$primary: $dark-blue-gray;
+$secondary: $yellow;
+
+$body-bg: $light-periwinkle;
+
 @import "node_modules/bootstrap/scss/bootstrap";
+
+.navbar {
+  background-color: $slate-gray;
+}
 
 .card-columns {
   @include media-breakpoint-only(md) {
