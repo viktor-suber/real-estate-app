@@ -10,6 +10,7 @@ $primary: $dark-blue-gray;
 $secondary: $yellow;
 
 $body-bg: $light-periwinkle;
+$body-color: $charcoal;
 $input-bg: darken($charcoal, 5%);
 $input-border-width: 0;
 
@@ -56,6 +57,14 @@ $input-border-width: 0;
 //   white-space: nowrap;
 //   text-overflow: ellipsis;
 // }
+
+// .home-details-title {
+
+// }
+
+.home-details-container {
+  background: darken($body-bg, 5%);
+}
 
 .details-img {
   width: 100%;
