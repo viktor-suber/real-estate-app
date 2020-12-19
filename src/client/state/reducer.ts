@@ -40,13 +40,13 @@ const reducer = (state: AppState, action: Action): AppState => {
 
   if (action.type === ActionTypes.FILTER_HOMES) {
 
-    const { selectedLocation, minPrice, maxPrice, minBedrooms, maxBedrooms } = action.payload || null;
+    const { selectedLocation, selectedMinPrice, selectedMaxPrice, selectedMinBedrooms, selectedMaxBedrooms } = action.payload || null;
 
     const minMax = {
-      minPrice: minPrice ? minPrice : state.minPrice,
-      maxPrice: maxPrice ? maxPrice : state.maxPrice,
-      minBedrooms: minBedrooms ? minBedrooms : state.minBedrooms,
-      maxBedrooms: maxBedrooms ? maxBedrooms : state.maxBedrooms
+      minPrice: selectedMinPrice ? selectedMinPrice : state.selectedMinPrice,
+      maxPrice: selectedMaxPrice ? selectedMaxPrice : state.selectedMaxPrice,
+      minBedrooms: selectedMinBedrooms ? selectedMinBedrooms : state.selectedMinBedrooms,
+      maxBedrooms: selectedMaxBedrooms ? selectedMaxBedrooms : state.selectedMaxBedrooms
     };
 
     if (selectedLocation) {

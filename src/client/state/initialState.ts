@@ -7,8 +7,8 @@ export const initialState: AppState = {
   locations: [],
   selectedLocation: '',
   // TODO - MAKE MAXIMUMS DYNAMIC
-  minPrice: 0,
-  maxPrice: 5000000,
-  minBedrooms: 0,
-  maxBedrooms: 20
+  selectedMinPrice: 0,
+  selectedMaxPrice: 5000000,
+  selectedMinBedrooms: 0,
+  selectedMaxBedrooms: 20
 };

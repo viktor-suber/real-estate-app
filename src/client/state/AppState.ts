@@ -4,8 +4,8 @@ export interface AppState {
   homes: any[];
   locations: any[];
   selectedLocation: string;
-  minPrice: number;
-  maxPrice: number;
-  minBedrooms: number;
-  maxBedrooms: number;
+  selectedMinPrice: number;
+  selectedMaxPrice: number;
+  selectedMinBedrooms: number;
+  selectedMaxBedrooms: number;
 }
