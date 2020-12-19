@@ -1,13 +1,15 @@
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface HomeCardProps {
   homeInfo: any;
   price: number;
+  id: number;
 }
 
-const HomeCard: React.FC<HomeCardProps> = ({ homeInfo, price }) => {
+const HomeCard: React.FC<HomeCardProps> = ({ homeInfo, price, id }) => {
   const {
     description,
     primaryImageUrl,
@@ -33,7 +35,9 @@ const HomeCard: React.FC<HomeCardProps> = ({ homeInfo, price }) => {
         </h4>
         <p>{description}</p>
         <div className="d-flex justify-content-end mb-3">
+        <Link to={`homes/${id}`} >
         <button className="btn btn-primary">Learn More <FontAwesomeIcon icon={faArrowRight} size="sm"/></button>
+        </Link>
         </div>
         <div className="row border-top pt-3 text-center">
           <div className="col-sm">
