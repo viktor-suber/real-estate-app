@@ -9,10 +9,10 @@ const HomesList: React.FC = () => {
   const {
     homes,
     selectedLocation,
-    minPrice,
-    maxPrice,
-    minBedrooms,
-    maxBedrooms,
+    selectedMinPrice,
+    selectedMaxPrice,
+    selectedMinBedrooms,
+    selectedMaxBedrooms,
   } = appData || {};
   let match = useRouteMatch();
 
@@ -28,10 +28,10 @@ const HomesList: React.FC = () => {
               const { city, state } = home.property.address;
 
               if (
-                minPrice <= home.price &&
-                home.price <= maxPrice &&
-                minBedrooms <= home.property.numberBedrooms &&
-                home.property.numberBedrooms <= maxBedrooms &&
+                selectedMinPrice <= home.price &&
+                home.price <= selectedMaxPrice &&
+                selectedMinBedrooms <= home.property.numberBedrooms &&
+                home.property.numberBedrooms <= selectedMaxBedrooms &&
                 ((selectedLocation &&
                   (selectedLocation === state ||
                     selectedLocation === `${city}, ${state}`)) ||

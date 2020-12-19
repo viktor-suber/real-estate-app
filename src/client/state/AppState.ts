@@ -3,9 +3,13 @@ export interface AppState {
   error: any;
   homes: any[];
   locations: any[];
-  selectedLocation: string;
   minPrice: number;
   maxPrice: number;
   minBedrooms: number;
   maxBedrooms: number;
+  selectedLocation: string;
+  selectedMinPrice: number;
+  selectedMaxPrice: number;
+  selectedMinBedrooms: number;
+  selectedMaxBedrooms: number;
 }

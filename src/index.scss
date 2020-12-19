@@ -4,6 +4,7 @@ $charcoal: #343A45;
 $dark-blue-gray: #5C5D8D;
 $yellow: #FCD46F;
 $queen-pink: #E8C2CA;
+$silver-metallic: #A7A2A9;
 
 $primary: $dark-blue-gray;
 $secondary: $yellow;
@@ -17,6 +18,12 @@ $input-border-width: 0;
 .navbar {
   background-color: $charcoal;
   color: $queen-pink;
+}
+
+.slider {
+  margin-top: 15px;
+  margin-left: 4px;
+  margin-right: 4px;
 }
 
 .card-columns {
