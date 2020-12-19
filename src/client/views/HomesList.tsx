@@ -26,11 +26,11 @@ const HomesList: React.FC = () => {
           <HomeDetails />
         </Route>
         <Route path={match.path}>
-          <h1 className="display-5 text-center py-4">
+          <h3 className="display-5 text-center py-4">
             Viewing Homes ${selectedMinPrice} to ${selectedMaxPrice},{" "}
             {selectedMinBedrooms} to {selectedMaxBedrooms} Bedrooms
             {selectedLocation ? ` in ${selectedLocation}` : null}
-          </h1>
+          </h3>
           <div className="card-columns">
             {homes.map((home: any) => {
               const { city, state } = home.property.address;

@@ -1,4 +1,4 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faBath, faBed } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -27,7 +27,7 @@ const HomeCard: React.FC<HomeCardProps> = ({ homeInfo, price, id }) => {
       <img
         src={primaryImageUrl}
         className="card-img-top home-card-img"
-        alt="..."
+        alt={`${address} - ${price}`}
       />
       <div className="card-body">
         <h4 className="card-title home-card-title">
@@ -41,12 +41,12 @@ const HomeCard: React.FC<HomeCardProps> = ({ homeInfo, price, id }) => {
         </div>
         <div className="row border-top pt-3 text-center">
           <div className="col-sm">
-            <span className="h5">{numberBedrooms}</span>
+            <span className="h5">{numberBedrooms}</span> <FontAwesomeIcon icon={faBed} size="lg"/>
             <br />
             Bedrooms
           </div>
           <div className="col-sm">
-            <span className="h5">{numberBaths}</span>
+            <span className="h5">{numberBaths}</span> <FontAwesomeIcon icon={faBath} size="lg"/>
             <br />
             Bathrooms
           </div>
