@@ -2,12 +2,11 @@ import React, { useContext, useState } from "react";
 import { Typeahead } from 'react-bootstrap-typeahead';
 import { useForm } from "react-hook-form";
 import { Context } from "../../state/context";
-import { Range } from 'react-range';
 import Slider from "./Slider";
 
 const HomesFilterForm: React.FC = () => {
   const { filterHomes, appData } = useContext(Context);
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit } = useForm();
 
   const [ location, setLocation ] = useState('');
 
@@ -24,14 +23,20 @@ const HomesFilterForm: React.FC = () => {
     }
   };
 
-  const onSubmit = (event: any) => {
-    let selectionData;
+  const onSubmit = () => {
+
+    let selectionData: any = {
+      selectedMinPrice: priceValues[0],
+      selectedMaxPrice: priceValues[1],
+      selectedMinBedrooms: bedValues[0],
+      selectedMaxBedrooms: bedValues[1]
+    };
+
     if (location) {
       const locationString = location.replace(/^"(.*)"$/, '$1');
-      selectionData = {selectedLocation: locationString, ...event};
-    } else {
-      selectionData = {...event, selectedMinPrice: priceValues[0], selectedMaxPrice: priceValues[1], selectedMinBedrooms: bedValues[0], selectedMaxBedrooms: bedValues[1]};
+      selectionData = {selectedLocation: locationString, ...selectionData};
     }
+
     filterHomes(selectionData);
   };
 
