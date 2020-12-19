@@ -18,31 +18,31 @@ const HomeCard: React.FC<HomeCardProps> = ({ homeInfo, price }) => {
   const { addressLine1, city, state } = address;
 
   return (
-    <div className="card mb-2">
-      <span className="card-price h4 p-2 m-2">
-        ${price}
-      </span>
-      <img src={primaryImageUrl} className="card-img-top home-card-img" alt="..." />
+    <div className="card mb-2 home-card">
+      <span className="card-price shadow h4 p-2 m-2">${price}</span>
+      <img
+        src={primaryImageUrl}
+        className="card-img-top home-card-img"
+        alt="..."
+      />
       <div className="card-body">
-      <h5 className="card-title">
-        {addressLine1} {city}, {state}
-      </h5>
-      <p>
-        { description }
-      </p>
-      <div className="row border-top pt-3">
+        <h4 className="card-title home-card-title">
+          {addressLine1} {city}, {state}
+        </h4>
+        <p>{description}</p>
+        <div className="row border-top pt-3 text-center">
           <div className="col-sm">
-            {numberBedrooms}
+            <span className="h5">{numberBedrooms}</span>
             <br />
             Bedrooms
           </div>
           <div className="col-sm">
-            {numberBaths}
+            <span className="h5">{numberBaths}</span>
             <br />
-            Baths
+            Bathrooms
           </div>
           <div className="col-sm">
-            {squareFeet}
+            <span className="h5">{squareFeet}</span>
             <br />
             Square Feet
           </div>

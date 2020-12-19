@@ -24,9 +24,8 @@ $body-bg: $light-periwinkle;
   }
 }
 
-.home-card-img {
-    position: relative;
-    z-index: 1;
+.home-card {
+  color: $body-color;
 }
 
 .card-price {
@@ -34,5 +33,14 @@ $body-bg: $light-periwinkle;
   z-index: 2;
   right: 0px;
   background-color: $secondary;
-  color: $body-color;
 }
+
+.home-card-img {
+    position: relative;
+    z-index: 1;
+}
+
+// .home-card-title {
+//   white-space: nowrap;
+//   text-overflow: ellipsis;
+// }
