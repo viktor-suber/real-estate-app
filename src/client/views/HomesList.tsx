@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
+import Header from "../shared/components/Header";
 import HomeCard from "../shared/components/HomeCard";
 import HomeDetails from "../shared/components/HomeDetails/HomeDetails";
 import { Context } from "../state/context";
@@ -18,6 +19,7 @@ const HomesList: React.FC = () => {
 
   return (
     <>
+    <main className="mx-xxl-6 mx-xl-5 mx-md-4 mx-sm-3 mx-2">
       <Switch>
         <Route path={`${match.path}/:homeId`}>
           <HomeDetails />
@@ -43,7 +45,7 @@ const HomesList: React.FC = () => {
                   !selectedLocation)
               ) {
                 return (
-                  <Link to={`${match.url}/${home.id}`} key={home.id}>
+                  <Link to={`homes/${home.id}`} key={home.id}>
                     <HomeCard homeInfo={home.property} price={home.price} />
                   </Link>
                 );
@@ -53,6 +55,7 @@ const HomesList: React.FC = () => {
           </div>
         </Route>
       </Switch>
+      </main>
     </>
   );
 };
