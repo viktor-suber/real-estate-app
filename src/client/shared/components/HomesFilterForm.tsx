@@ -25,6 +25,7 @@ const HomesFilterForm: React.FC = () => {
   };
 
   return (
+    <>
     <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
       <div className="form-group form-row">
         <div className="col">
@@ -36,41 +37,41 @@ const HomesFilterForm: React.FC = () => {
         />
         </div>
         <div className="col">
-        <label htmlFor="minPrice">Min Price</label>
+        <label htmlFor="selectedMinPrice">Min Price</label>
           <input
             type="text"
             placeholder="Min Price"
-            name="minPrice"
+            name="selectedMinPrice"
             className="form-control"
             ref={register}
           />
         </div>
         <div className="col">
-        <label htmlFor="maxPrice">Max Price</label>
+        <label htmlFor="selectedMaxPrice">Max Price</label>
           <input
             type="text"
             placeholder="Max Price"
-            name="maxPrice"
+            name="selectedMaxPrice"
             className="form-control"
             ref={register}
           />
         </div>
         <div className="col">
-        <label htmlFor="minBedrooms">Min Bedrooms</label>
+        <label htmlFor="selectedMinBedrooms">Min Bedrooms</label>
           <input
             type="text"
             placeholder="Min Bedrooms"
-            name="minBedrooms"
+            name="selectedMinBedooms"
             className="form-control"
             ref={register}
           />
         </div>
         <div className="col">
-        <label htmlFor="maxBedrooms">Max Bedrooms</label>
+        <label htmlFor="selectedMaxBedrooms">Max Bedrooms</label>
           <input
             type="text"
             placeholder="Max Bedrooms"
-            name="maxBedrooms"
+            name="selectedMaxBedrooms"
             className="form-control"
             ref={register}
           />
@@ -79,40 +80,41 @@ const HomesFilterForm: React.FC = () => {
         <button type="submit" className="btn btn-secondary">Search</button>
       </div>
       </div>
-      <br />
-      <Range
-        step={5000}
-        min={0}
-        max={5000000}
-        values={values}
-        onChange={(values) => setValues(values)}
-        renderTrack={({ props, children }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: '6px',
-              width: '100%',
-              backgroundColor: '#ccc'
-            }}
-          >
-            {children}
-          </div>
-        )}
-        renderThumb={({ props }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: '20px',
-              width: '20px',
-              backgroundColor: '#999'
-            }}
-            
-          />
-        )}
-      />
     </form>
+    <br />
+          <Range
+          step={5000}
+          min={0}
+          max={5000000}
+          values={values}
+          onChange={(values) => setValues(values)}
+          renderTrack={({ props, children }) => (
+            <div
+              {...props}
+              style={{
+                ...props.style,
+                height: '6px',
+                width: '100%',
+                backgroundColor: '#ccc'
+              }}
+            >
+              {children}
+            </div>
+          )}
+          renderThumb={({ props }) => (
+            <div
+              {...props}
+              style={{
+                ...props.style,
+                height: '20px',
+                width: '20px',
+                backgroundColor: '#999'
+              }}
+              
+            />
+          )}
+        />
+    </>
   );
 };
 

@@ -11,7 +11,9 @@ const reducer = (state: AppState, action: Action): AppState => {
 
   if (action.type === ActionTypes.HOMES_LOADED) {
 
-    const locations = action.payload.reduce((seed: any, current: any) => {
+    const { minMaxData, data } = action.payload;
+
+    const locations = data.reduce((seed: any, current: any) => {
       const stateName = current.property.address.state;
       const location = `${current.property.address.city}, ${stateName}`;
       if (!seed.includes(stateName)) {
@@ -22,11 +24,18 @@ const reducer = (state: AppState, action: Action): AppState => {
       return seed;
     }, []);
 
+    const { minPrice, maxPrice, minBedrooms, maxBedrooms } = minMaxData;
+
     return {
       ...state,
+      ...minMaxData,
       loading: false,
-      homes: action.payload,
-      locations: locations
+      homes: data,
+      locations: locations,
+      selectedMinPrice: minPrice,
+      selectedMaxPrice: maxPrice,
+      selectedMinBedrooms: minBedrooms,
+      selectedMaxBedrooms: maxBedrooms
     };
   }
 
@@ -43,10 +52,10 @@ const reducer = (state: AppState, action: Action): AppState => {
     const { selectedLocation, selectedMinPrice, selectedMaxPrice, selectedMinBedrooms, selectedMaxBedrooms } = action.payload || null;
 
     const minMax = {
-      minPrice: selectedMinPrice ? selectedMinPrice : state.selectedMinPrice,
-      maxPrice: selectedMaxPrice ? selectedMaxPrice : state.selectedMaxPrice,
-      minBedrooms: selectedMinBedrooms ? selectedMinBedrooms : state.selectedMinBedrooms,
-      maxBedrooms: selectedMaxBedrooms ? selectedMaxBedrooms : state.selectedMaxBedrooms
+      selectedMinPrice: selectedMinPrice ? selectedMinPrice : state.selectedMinPrice,
+      selectedMaxPrice: selectedMaxPrice ? selectedMaxPrice : state.selectedMaxPrice,
+      selectedMinBedrooms: selectedMinBedrooms ? selectedMinBedrooms : state.selectedMinBedrooms,
+      selectedMaxBedrooms: selectedMaxBedrooms ? selectedMaxBedrooms : state.selectedMaxBedrooms
     };
 
     if (selectedLocation) {
