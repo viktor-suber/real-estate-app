@@ -7,7 +7,8 @@ const Header: React.FC = () => {
     <div className="navbar navbar-expand">
       <div className="container-fluid">
       {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle Search"><span className="navbar-toggler-icon"></span></button> */}
-      <div className="collapse navbar-collapse" id="navbarSupportedContent"><HomesFilterForm /></div>
+      <HomesFilterForm />
+      {/* <div className="collapse navbar-collapse" id="navbarSupportedContent"></div> */}
       </div>
     </div>
   );

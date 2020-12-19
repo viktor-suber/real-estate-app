@@ -28,7 +28,7 @@ const HomesFilterForm: React.FC = () => {
 
   return (
       <>
-      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off">
+      <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" style={{width: '100%'}}>
       <div className="form-group form-row">
         <div className="col">
         <label htmlFor="city">Location</label>
@@ -116,9 +116,7 @@ const HomesFilterForm: React.FC = () => {
           {bedValues[0]} - {bedValues[1]}
         </output>
         </div>
-      <div className="col">
         <button type="submit" className="btn btn-secondary">Search</button>
-      </div>
       </div>
     </form>
       </>
