@@ -19,6 +19,12 @@ $input-border-width: 0;
   color: $queen-pink;
 }
 
+.slider {
+  margin-top: 15px;
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
 .card-columns {
   @include media-breakpoint-only(md) {
     column-count: 2;

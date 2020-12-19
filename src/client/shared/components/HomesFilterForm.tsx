@@ -40,6 +40,7 @@ const HomesFilterForm: React.FC = () => {
         </div>
         <div className="col mx-2">
           <label>Price</label>
+          <div className="slider d-flex flex-column align-items-center">
           <Range
           step={10000}
           min={minPrice}
@@ -73,12 +74,14 @@ const HomesFilterForm: React.FC = () => {
           )}
         />
         <br />
-        <output style={{ marginTop: '30px' }}>
+        <output>
           {priceValues[0]} - {priceValues[1]}
         </output>
+          </div>
         </div>
         <div className="col mx-2">
         <label>Bedrooms</label>
+        <div className="slider d-flex flex-column align-items-center">
         <Range
           step={1}
           min={minBedrooms}
@@ -112,9 +115,10 @@ const HomesFilterForm: React.FC = () => {
           )}
         />
         <br />
-        <output style={{ marginTop: '30px' }}>
+        <output>
           {bedValues[0]} - {bedValues[1]}
         </output>
+        </div>
         </div>
         <button type="submit" className="btn btn-secondary">Search</button>
       </div>
