@@ -2,12 +2,14 @@ import React, { useContext, useState } from "react";
 import { Typeahead } from 'react-bootstrap-typeahead';
 import { useForm } from "react-hook-form";
 import { Context } from "../../state/context";
+import { Range } from 'react-range';
 
 const HomesFilterForm: React.FC = () => {
   const { filterHomes, appData } = useContext(Context);
   const { handleSubmit, register } = useForm();
 
   const [ location, setLocation ] = useState('');
+  const [ values, setValues] = useState([0, 5000000]);
 
   const { locations } = appData || [];
 
@@ -73,8 +75,43 @@ const HomesFilterForm: React.FC = () => {
             ref={register}
           />
         </div>
+      <div className="col">
+        <button type="submit" className="btn btn-secondary">Search</button>
       </div>
-      <button type="submit" className="btn btn-secondary">Search</button>
+      </div>
+      <br />
+      <Range
+        step={5000}
+        min={0}
+        max={5000000}
+        values={values}
+        onChange={(values) => setValues(values)}
+        renderTrack={({ props, children }) => (
+          <div
+            {...props}
+            style={{
+              ...props.style,
+              height: '6px',
+              width: '100%',
+              backgroundColor: '#ccc'
+            }}
+          >
+            {children}
+          </div>
+        )}
+        renderThumb={({ props }) => (
+          <div
+            {...props}
+            style={{
+              ...props.style,
+              height: '20px',
+              width: '20px',
+              backgroundColor: '#999'
+            }}
+            
+          />
+        )}
+      />
     </form>
   );
 };
