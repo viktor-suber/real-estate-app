@@ -22,7 +22,7 @@ const App: React.FC = () => {
                 <Route path="/homes">
                   <Header>
                     <div className="pb-2">
-                      <Link to={"/"}>Back</Link>
+                      <Link to={"/"}><button className="btn btn-secondary">Back</button></Link>
                     </div>
                   </Header>
                   <HomesList />
