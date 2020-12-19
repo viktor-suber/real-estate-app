@@ -74,8 +74,8 @@ const HomesFilterForm: React.FC = () => {
           )}
         />
         <br />
-        <output>
-          {priceValues[0]} - {priceValues[1]}
+        <output className="price-range">
+          <span className="h5">${priceValues[0]}</span> to <span className="h5">${priceValues[1]}</span>
         </output>
           </div>
         </div>
@@ -115,8 +115,8 @@ const HomesFilterForm: React.FC = () => {
           )}
         />
         <br />
-        <output>
-          {bedValues[0]} - {bedValues[1]}
+        <output className="bedrooms-range">
+        <span className="h5">{bedValues[0]}</span> to <span className="h5">{bedValues[1]} Bedrooms</span>
         </output>
         </div>
         </div>
