@@ -30,7 +30,7 @@ const HomesFilterForm: React.FC = () => {
       <>
       <form onSubmit={handleSubmit(onSubmit)} autoComplete="off" style={{width: '100%'}}>
       <div className="form-group form-row">
-        <div className="col">
+        <div className="col ms-1 me-2">
         <label htmlFor="city">Location</label>
         <Typeahead options={locations} id="location" 
         onChange={((selected) => {
@@ -38,7 +38,7 @@ const HomesFilterForm: React.FC = () => {
         })}
         />
         </div>
-        <div className="col">
+        <div className="col mx-2">
           <label>Price</label>
           <Range
           step={10000}
@@ -51,9 +51,9 @@ const HomesFilterForm: React.FC = () => {
               {...props}
               style={{
                 ...props.style,
-                height: '6px',
+                height: '5px',
                 width: '100%',
-                backgroundColor: '#ccc'
+                backgroundColor: '#A7A2A9'
               }}
             >
               {children}
@@ -64,9 +64,9 @@ const HomesFilterForm: React.FC = () => {
               {...props}
               style={{
                 ...props.style,
-                height: '20px',
-                width: '20px',
-                backgroundColor: '#999'
+                height: '40px',
+                width: '8px',
+                backgroundColor: '#FCD46F'
               }}
               
             />
@@ -77,7 +77,7 @@ const HomesFilterForm: React.FC = () => {
           {priceValues[0]} - {priceValues[1]}
         </output>
         </div>
-        <div className="col">
+        <div className="col mx-2">
         <label>Bedrooms</label>
         <Range
           step={1}
@@ -90,9 +90,9 @@ const HomesFilterForm: React.FC = () => {
               {...props}
               style={{
                 ...props.style,
-                height: '6px',
+                height: '5px',
                 width: '100%',
-                backgroundColor: '#ccc'
+                backgroundColor: '#A7A2A9'
               }}
             >
               {children}
@@ -103,9 +103,9 @@ const HomesFilterForm: React.FC = () => {
               {...props}
               style={{
                 ...props.style,
-                height: '20px',
-                width: '20px',
-                backgroundColor: '#999'
+                height: '40px',
+                width: '8px',
+                backgroundColor: '#FCD46F'
               }}
               
             />
