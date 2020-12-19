@@ -13,6 +13,7 @@ const HomesFilterForm: React.FC = () => {
   const { locations, minPrice, maxPrice, minBedrooms, maxBedrooms } = appData || {};
 
   const [ priceValues, setPriceValues] = useState([minPrice, maxPrice]);
+  const [ bedValues, setBedValues ] = useState([minBedrooms, maxBedrooms]);
 
   const onSubmit = (event: any) => {
     let selectionData;
@@ -20,7 +21,7 @@ const HomesFilterForm: React.FC = () => {
       const locationString = location.replace(/^"(.*)"$/, '$1');
       selectionData = {selectedLocation: locationString, ...event};
     } else {
-      selectionData = {...event, selectedMinPrice: priceValues[0], selectedMaxPrice: priceValues[1]};
+      selectionData = {...event, selectedMinPrice: priceValues[0], selectedMaxPrice: priceValues[1], selectedMinBedrooms: bedValues[0], selectedMaxBedrooms: bedValues[1]};
     }
     filterHomes(selectionData);
   };
@@ -75,44 +76,45 @@ const HomesFilterForm: React.FC = () => {
         <output style={{ marginTop: '30px' }}>
           {priceValues[0]} - {priceValues[1]}
         </output>
-        {/* <label htmlFor="selectedMinPrice">Min Price</label>
-          <input
-            type="text"
-            placeholder="Min Price"
-            name="selectedMinPrice"
-            className="form-control"
-            ref={register}
-          />
         </div>
         <div className="col">
-        <label htmlFor="selectedMaxPrice">Max Price</label>
-          <input
-            type="text"
-            placeholder="Max Price"
-            name="selectedMaxPrice"
-            className="form-control"
-            ref={register}
-          /> */}
-        </div>
-        <div className="col">
-        <label htmlFor="selectedMinBedrooms">Min Bedrooms</label>
-          <input
-            type="text"
-            placeholder="Min Bedrooms"
-            name="selectedMinBedooms"
-            className="form-control"
-            ref={register}
-          />
-        </div>
-        <div className="col">
-        <label htmlFor="selectedMaxBedrooms">Max Bedrooms</label>
-          <input
-            type="text"
-            placeholder="Max Bedrooms"
-            name="selectedMaxBedrooms"
-            className="form-control"
-            ref={register}
-          />
+        <label>Bedrooms</label>
+        <Range
+          step={1}
+          min={minBedrooms}
+          max={maxBedrooms}
+          values={bedValues}
+          onChange={(values) => setBedValues(values)}
+          renderTrack={({ props, children }) => (
+            <div
+              {...props}
+              style={{
+                ...props.style,
+                height: '6px',
+                width: '100%',
+                backgroundColor: '#ccc'
+              }}
+            >
+              {children}
+            </div>
+          )}
+          renderThumb={({ props }) => (
+            <div
+              {...props}
+              style={{
+                ...props.style,
+                height: '20px',
+                width: '20px',
+                backgroundColor: '#999'
+              }}
+              
+            />
+          )}
+        />
+        <br />
+        <output style={{ marginTop: '30px' }}>
+          {bedValues[0]} - {bedValues[1]}
+        </output>
         </div>
       <div className="col">
         <button type="submit" className="btn btn-secondary">Search</button>
