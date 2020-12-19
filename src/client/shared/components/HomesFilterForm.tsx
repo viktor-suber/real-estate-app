@@ -2,6 +2,8 @@ import React, { useContext, useState } from "react";
 import { Typeahead, TypeaheadInputSingle } from 'react-bootstrap-typeahead';
 import { useForm } from "react-hook-form";
 import { Context } from "../../state/context";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Slider from "./Slider";
 
 const HomesFilterForm: React.FC = () => {
@@ -66,7 +68,7 @@ const HomesFilterForm: React.FC = () => {
         <label>Bedrooms</label>
         <Slider type={'bedrooms'} min={minBedrooms} max={maxBedrooms} step={1} handleSliderValues={handleSliderValues} />
         </div>
-        <button type="submit" className="btn btn-secondary">Search</button>
+        <button type="submit" className="btn btn-secondary px-4 ms-2"><FontAwesomeIcon icon={faSearch} size="2x"/><br/>Filter</button>
       </div>
     </form>
       </>
