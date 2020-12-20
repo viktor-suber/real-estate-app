@@ -3,8 +3,8 @@ import { Context } from "./state/context";
 import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import Header from "./shared/components/Header";
 import HomesList from "./views/HomesList";
-import HomeDetails from "./shared/components/HomeDetails/HomeDetails";
 import HomesFilterForm from "./shared/components/HomesFilterForm";
+import BackButton from "./shared/components/BackButton";
 
 const App: React.FC = () => {
   const { appData } = useContext(Context);
@@ -22,7 +22,9 @@ const App: React.FC = () => {
                 <Route path="/homes">
                   <Header>
                     <div className="pb-2">
-                      <Link to={"/"}><button className="btn btn-secondary">Back</button></Link>
+                      <Link to={"/"}>
+                        <BackButton />
+                      </Link>
                     </div>
                   </Header>
                   <HomesList />
