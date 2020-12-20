@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 $pewter-blue: #9dbcc4;
 $light-periwinkle: #C7CCDB;
 $charcoal: #343A45;
@@ -11,8 +13,9 @@ $secondary: $yellow;
 
 $body-bg: $light-periwinkle;
 $body-color: $charcoal;
-$input-bg: darken($charcoal, 5%);
 $input-border-width: 0;
+
+$font-family-sans-serif: 'Poppins';
 
 @import "node_modules/bootstrap/scss/bootstrap";
 
@@ -27,6 +30,10 @@ $input-border-width: 0;
   margin-right: 4px;
 }
 
+.range {
+  margin-top: 12px;
+}
+
 .card-columns {
   @include media-breakpoint-only(md) {
     column-count: 2;
@@ -37,8 +44,12 @@ $input-border-width: 0;
 }
 
 .home-card {
+  background: lighten($body-bg, 15%);
   color: $body-color;
-  // border: 1px solid $charcoal;
+}
+
+.home-card:hover {
+  background: $white;
 }
 
 .card-price {
@@ -62,10 +73,14 @@ $input-border-width: 0;
 
 // }
 
-.home-details-container {
-  background: darken($body-bg, 5%);
+.home-details-card {
+  background: lighten($body-bg, 15%);
 }
 
 .details-img {
   width: 100%;
+}
+
+.filter-input {
+  background: darken($charcoal, 5%);
 }

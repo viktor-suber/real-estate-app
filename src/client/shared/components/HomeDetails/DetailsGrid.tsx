@@ -1,4 +1,5 @@
 import React from "react";
+import { addCommas } from "../methods";
 
 interface DetailsGridProps {
   currentHome: any;
@@ -12,6 +13,7 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
     excludedItems,
     escrowCompany,
     titleCompany,
+    listingAgent
   } = currentHome;
 
   const {
@@ -29,12 +31,32 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
   return (
     <>
     <div className="container h1 p-0 my-4 home-details-title">
-      {addressLine1} {city}, {state} - ${price}
+      {addressLine1} {city}, {state} - ${addCommas(price)}
     </div>
-      <div className="container home-details-container p-4">
+      <div className="container card home-details-card p-4">
       <div className="row">
         <div className="col">
-          <img src={primaryImageUrl} className="details-img" alt="..." />
+          <img src={primaryImageUrl} className="details-img" alt={`${addressLine1} ${city}, ${state} - $${price}`} />
+          <div className="row mt-4">
+            <div className="col-sm">
+            <h6>Listing Agent</h6>
+            {listingAgent.user.firstName} {listingAgent.user.lastName}
+            <br />
+           <a href={`mailto:${listingAgent.user.email}`}>{listingAgent.user.email}</a>
+            </div>
+            <div className="col-sm">
+              <h6>Escrow Company</h6>
+              {escrowCompany.name}
+              <br />
+              Officer: {escrowCompany.officerName}
+            </div>
+            <div className="col-sm">
+              <h6>Title Company</h6>
+              {titleCompany.name}
+              <br />
+              Officer: {titleCompany.officerName}
+            </div>
+          </div>
         </div>
         <div className="col">
           <div className="row">
@@ -46,7 +68,7 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
           <div className="row">
           <div className="col-sm">
               <h6>Price</h6>
-              <span className="lead">${price}</span>
+              <span className="lead">${addCommas(price)}</span>
             </div>
             <div className="col-sm">
               <h6>Address</h6>
@@ -58,7 +80,7 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
 
             </div>
           </div>
-          <div className="row">
+          <div className="row mb-4">
             <div className="col-sm">
               <h6>Bedrooms</h6>
               <span className="lead">{numberBedrooms}</span>
@@ -73,7 +95,7 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
             </div>
           </div>
           {includedItems.length || excludedItems.length ? (
-            <div className="row mt-4">
+            <div className="row">
               {includedItems.length ? (
                 <div className="col-sm">
                   <h6>Included:</h6>
@@ -96,7 +118,7 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
               ) : null}
             </div>
           ) : null}
-          <div className="row mb-3">
+          <div className="row">
             <div className="col-sm">
               <h6>Type</h6>
               {propertyType.match(/[A-Z][a-z]+/g).join(" ")}
@@ -104,20 +126,6 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
             <div className="col-sm">
               <h6>Status</h6>
               {currentHome.state}
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm">
-              <h6>Escrow Company</h6>
-              {escrowCompany.name}
-              <br />
-              Officer: {escrowCompany.officerName}
-            </div>
-            <div className="col-sm">
-              <h6>Title Company</h6>
-              {titleCompany.name}
-              <br />
-              Officer: {titleCompany.officerName}
             </div>
           </div>
         </div>

@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
-import Header from "../shared/components/Header";
 import HomeCard from "../shared/components/HomeCard";
 import HomeDetails from "../shared/components/HomeDetails/HomeDetails";
 import { Context } from "../state/context";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { addCommas } from "../shared/components/methods";
 
 const HomesList: React.FC = () => {
   const { appData } = useContext(Context);
@@ -25,11 +27,11 @@ const HomesList: React.FC = () => {
           <HomeDetails />
         </Route>
         <Route path={match.path}>
-          <h1 className="display-5 text-center py-4">
-            Viewing Homes ${selectedMinPrice} to ${selectedMaxPrice},{" "}
+          <h3 className="display-5 text-center py-4">
+            Viewing Homes ${addCommas(selectedMinPrice)} to ${addCommas(selectedMaxPrice)},{" "}
             {selectedMinBedrooms} to {selectedMaxBedrooms} Bedrooms
             {selectedLocation ? ` in ${selectedLocation}` : null}
-          </h1>
+          </h3>
           <div className="card-columns">
             {homes.map((home: any) => {
               const { city, state } = home.property.address;
@@ -45,9 +47,7 @@ const HomesList: React.FC = () => {
                   !selectedLocation)
               ) {
                 return (
-                  <Link to={`homes/${home.id}`} key={home.id}>
-                    <HomeCard homeInfo={home.property} price={home.price} />
-                  </Link>
+                    <HomeCard homeInfo={home.property} price={home.price} id={home.id} key={home.id}/>
                 );
               }
               return null;
