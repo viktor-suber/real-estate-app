@@ -80,7 +80,7 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
 
             </div>
           </div>
-          <div className="row">
+          <div className="row mb-4">
             <div className="col-sm">
               <h6>Bedrooms</h6>
               <span className="lead">{numberBedrooms}</span>
@@ -95,7 +95,7 @@ const DetailsGrid: React.FC<DetailsGridProps> = ({ currentHome }) => {
             </div>
           </div>
           {includedItems.length || excludedItems.length ? (
-            <div className="row mt-4">
+            <div className="row">
               {includedItems.length ? (
                 <div className="col-sm">
                   <h6>Included:</h6>
