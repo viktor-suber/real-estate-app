@@ -4,7 +4,9 @@ import React from "react";
 
 const BackButton: React.FC = () => {
   return (
-    <button className="btn btn-secondary"><FontAwesomeIcon icon={faArrowLeft} size="sm"/> Back</button>
+    <button className="btn btn-secondary">
+      <FontAwesomeIcon icon={faArrowLeft} size="sm" /> Back
+    </button>
   );
 };
 

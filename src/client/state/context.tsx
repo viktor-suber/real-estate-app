@@ -8,7 +8,7 @@ export const Context = createContext<any>(initialState);
 export const Provider = ({ children }: any): JSX.Element => {
   const [appData, dispatch] = useReducer(reducer, initialState);
 
-  const homesUrl = 'http://localhost:3001/api/homes';
+  const homesUrl = "http://localhost:3001/api/homes";
 
   const getHomes = useCallback(() => {
     dispatch({ type: ActionTypes.HOMES_LOADING });
@@ -18,30 +18,31 @@ export const Provider = ({ children }: any): JSX.Element => {
         const data = response;
         dispatch({
           type: ActionTypes.HOMES_LOADED,
-          payload: data
+          payload: data,
         });
       })
       .catch((error) => {
         dispatch({
           type: ActionTypes.HOMES_LOAD_ERROR,
-          payload: error
+          payload: error,
         });
       });
   }, [dispatch]);
 
-  const filterHomes = useCallback((filterParams) => {
-    dispatch({ type: ActionTypes.FILTER_HOMES, payload: filterParams});
-  }, [dispatch]);
+  const filterHomes = useCallback(
+    (filterParams) => {
+      dispatch({ type: ActionTypes.FILTER_HOMES, payload: filterParams });
+    },
+    [dispatch]
+  );
 
   useEffect(() => {
     getHomes();
   }, [getHomes]);
 
   return (
-    <Context.Provider
-    value={{appData, filterHomes}}
-  >
-    { children }
-  </Context.Provider>
+    <Context.Provider value={{ appData, filterHomes }}>
+      {children}
+    </Context.Provider>
   );
 };

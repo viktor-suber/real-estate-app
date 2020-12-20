@@ -93,7 +93,7 @@ const HomesFilterForm: React.FC = () => {
           </div>
           <div className="col-1 d-flex align-items-center">
             <button type="submit" className="btn btn-secondary px-4 py-2 ms-2">
-              <FontAwesomeIcon icon={faSearch} size='2x'/> <br/> Filter
+              <FontAwesomeIcon icon={faSearch} size="2x" /> <br /> Filter
             </button>
           </div>
         </div>
