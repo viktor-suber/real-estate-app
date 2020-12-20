@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Range } from "react-range";
+import { addCommas } from "./methods";
 
 interface SliderProps {
   type: string;
@@ -59,8 +60,8 @@ const Slider: React.FC<SliderProps> = ({
       <output className="range">
         {type === "price" ? (
           <>
-            <span className="h6">${values[0]}</span> to{" "}
-            <span className="h6">${values[1]}</span>
+            <span className="h6">${addCommas(values[0])}</span> to{" "}
+            <span className="h6">${addCommas(values[1])}</span>
           </>
         ) : (
           <>

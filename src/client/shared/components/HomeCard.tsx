@@ -2,6 +2,7 @@ import { faArrowRight, faBath, faBed } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
+import { addCommas } from "./methods";
 
 interface HomeCardProps {
   homeInfo: any;
@@ -23,11 +24,11 @@ const HomeCard: React.FC<HomeCardProps> = ({ homeInfo, price, id }) => {
 
   return (
     <div className="card mb-2 home-card">
-      <span className="card-price shadow h4 p-2 m-2">${price}</span>
+      <span className="card-price shadow h4 p-2 m-2">${addCommas(price)}</span>
       <img
         src={primaryImageUrl}
         className="card-img-top home-card-img"
-        alt={`${address} - ${price}`}
+        alt={`${addressLine1} ${city}, ${state} - $${addCommas(price)}`}
       />
       <div className="card-body">
         <h4 className="card-title home-card-title">

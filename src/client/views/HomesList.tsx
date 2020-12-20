@@ -5,6 +5,7 @@ import HomeDetails from "../shared/components/HomeDetails/HomeDetails";
 import { Context } from "../state/context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
+import { addCommas } from "../shared/components/methods";
 
 const HomesList: React.FC = () => {
   const { appData } = useContext(Context);
@@ -27,7 +28,7 @@ const HomesList: React.FC = () => {
         </Route>
         <Route path={match.path}>
           <h3 className="display-5 text-center py-4">
-            Viewing Homes ${selectedMinPrice} to ${selectedMaxPrice},{" "}
+            Viewing Homes ${addCommas(selectedMinPrice)} to ${addCommas(selectedMaxPrice)},{" "}
             {selectedMinBedrooms} to {selectedMaxBedrooms} Bedrooms
             {selectedLocation ? ` in ${selectedLocation}` : null}
           </h3>
