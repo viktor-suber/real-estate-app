@@ -1,16 +1,15 @@
 import { Action, ActionTypes } from "./actions";
-import { AppState } from "./AppState"
+import { AppState } from "./AppState";
 
 const reducer = (state: AppState, action: Action): AppState => {
   if (action.type === ActionTypes.HOMES_LOADING) {
     return {
       ...state,
-      loading: true
+      loading: true,
     };
   }
 
   if (action.type === ActionTypes.HOMES_LOADED) {
-
     const { minMaxData, data } = action.payload;
 
     const locations = data.reduce((seed: any, current: any) => {
@@ -18,7 +17,8 @@ const reducer = (state: AppState, action: Action): AppState => {
       const location = `${current.property.address.city}, ${stateName}`;
       if (!seed.includes(stateName)) {
         seed.push(stateName);
-      }; if (!seed.includes(location)) {
+      }
+      if (!seed.includes(location)) {
         seed.push(location);
       }
       return seed;
@@ -35,7 +35,7 @@ const reducer = (state: AppState, action: Action): AppState => {
       selectedMinPrice: minPrice,
       selectedMaxPrice: maxPrice,
       selectedMinBedrooms: minBedrooms,
-      selectedMaxBedrooms: maxBedrooms
+      selectedMaxBedrooms: maxBedrooms,
     };
   }
 
@@ -43,35 +43,46 @@ const reducer = (state: AppState, action: Action): AppState => {
     return {
       ...state,
       loading: false,
-      error: action.payload
+      error: action.payload,
     };
-  };
+  }
 
   if (action.type === ActionTypes.FILTER_HOMES) {
-
-    const { selectedLocation, selectedMinPrice, selectedMaxPrice, selectedMinBedrooms, selectedMaxBedrooms } = action.payload || null;
+    const {
+      selectedLocation,
+      selectedMinPrice,
+      selectedMaxPrice,
+      selectedMinBedrooms,
+      selectedMaxBedrooms,
+    } = action.payload || null;
 
     const minMax = {
-      selectedMinPrice: selectedMinPrice ? selectedMinPrice : state.selectedMinPrice,
-      selectedMaxPrice: selectedMaxPrice ? selectedMaxPrice : state.selectedMaxPrice,
-      selectedMinBedrooms: selectedMinBedrooms ? selectedMinBedrooms : state.selectedMinBedrooms,
-      selectedMaxBedrooms: selectedMaxBedrooms ? selectedMaxBedrooms : state.selectedMaxBedrooms
+      selectedMinPrice: selectedMinPrice
+        ? selectedMinPrice
+        : state.selectedMinPrice,
+      selectedMaxPrice: selectedMaxPrice
+        ? selectedMaxPrice
+        : state.selectedMaxPrice,
+      selectedMinBedrooms: selectedMinBedrooms
+        ? selectedMinBedrooms
+        : state.selectedMinBedrooms,
+      selectedMaxBedrooms: selectedMaxBedrooms
+        ? selectedMaxBedrooms
+        : state.selectedMaxBedrooms,
     };
 
     if (selectedLocation) {
-
       return {
         ...state,
         selectedLocation: selectedLocation,
-        ...minMax
+        ...minMax,
       };
     }
-  
+
     return {
       ...state,
-      ...minMax
-    }
-
+      ...minMax,
+    };
   }
 
   return state;

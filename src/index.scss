@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 $pewter-blue: #9dbcc4;
-$light-periwinkle: #C7CCDB;
-$charcoal: #343A45;
-$dark-blue-gray: #5C5D8D;
-$yellow: #FCD46F;
-$queen-pink: #E8C2CA;
-$silver-metallic: #A7A2A9;
+$light-periwinkle: #c7ccdb;
+$charcoal: #343a45;
+$dark-blue-gray: #5c5d8d;
+$yellow: #fcd46f;
+$queen-pink: #e8c2ca;
+$silver-metallic: #a7a2a9;
 
 $primary: $dark-blue-gray;
 $secondary: $yellow;
@@ -15,9 +15,13 @@ $body-bg: $light-periwinkle;
 $body-color: $charcoal;
 $input-border-width: 0;
 
-$font-family-sans-serif: 'Poppins';
+$font-family-sans-serif: "Poppins";
 
 @import "node_modules/bootstrap/scss/bootstrap";
+
+body {
+  overflow-x: hidden;
+}
 
 .navbar {
   background-color: $charcoal;
@@ -60,8 +64,8 @@ $font-family-sans-serif: 'Poppins';
 }
 
 .home-card-img {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
 // .home-card-title {

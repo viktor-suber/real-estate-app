@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { Context } from "../../../state/context";
+import { Context } from "../../state/context";
 import DetailsGrid from "./DetailsGrid";
 
 interface URLParam {
@@ -23,11 +23,15 @@ const HomeDetails: React.FC = () => {
   });
 
   return (
-    <>{currentHome ? (
-      <main className="mx-xxl-6 mx-xl-5 mx-md-4 mx-sm-3 mx-2">
-      <DetailsGrid currentHome={currentHome}/>
-      </main>
-      )  : "Error"}</>
+    <>
+      {currentHome ? (
+        <main className="mx-xxl-6 mx-xl-5 mx-md-4 mx-sm-3 mx-2">
+          <DetailsGrid currentHome={currentHome} />
+        </main>
+      ) : (
+        "Error"
+      )}
+    </>
   );
 };
 

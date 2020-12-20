@@ -36,18 +36,22 @@ const HomeCard: React.FC<HomeCardProps> = ({ homeInfo, price, id }) => {
         </h4>
         <p>{description}</p>
         <div className="d-flex justify-content-end mb-3">
-        <Link to={`homes/${id}`} >
-        <button className="btn btn-primary">Learn More <FontAwesomeIcon icon={faArrowRight} size="sm"/></button>
-        </Link>
+          <Link to={`homes/${id}`}>
+            <button className="btn btn-primary">
+              Learn More <FontAwesomeIcon icon={faArrowRight} size="sm" />
+            </button>
+          </Link>
         </div>
         <div className="row border-top pt-3 text-center">
           <div className="col-sm">
-            <span className="h5">{numberBedrooms}</span> <FontAwesomeIcon icon={faBed} size="lg"/>
+            <span className="h5">{numberBedrooms}</span>{" "}
+            <FontAwesomeIcon icon={faBed} size="lg" />
             <br />
             Bedrooms
           </div>
           <div className="col-sm">
-            <span className="h5">{numberBaths}</span> <FontAwesomeIcon icon={faBath} size="lg"/>
+            <span className="h5">{numberBaths}</span>{" "}
+            <FontAwesomeIcon icon={faBath} size="lg" />
             <br />
             Bathrooms
           </div>
