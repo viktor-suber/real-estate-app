@@ -1,5 +1,5 @@
 import React from "react";
-import { addCommas } from "../methods";
+import { addCommas } from "../../shared/components/methods";
 
 interface DetailsGridProps {
   currentHome: any;

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
-import { Context } from "../../../state/context";
+import { Context } from "../../state/context";
 import DetailsGrid from "./DetailsGrid";
 
 interface URLParam {

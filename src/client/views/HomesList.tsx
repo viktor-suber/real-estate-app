@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Route, Switch, useRouteMatch } from "react-router-dom";
 import HomeCard from "../shared/components/HomeCard";
-import HomeDetails from "../shared/components/HomeDetails/HomeDetails";
+import HomeDetails from "./HomeDetails/HomeDetails";
 import { Context } from "../state/context";
 import { addCommas } from "../shared/components/methods";
 
