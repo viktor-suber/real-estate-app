@@ -1,10 +1,8 @@
 import React, { useContext } from "react";
-import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
+import { Route, Switch, useRouteMatch } from "react-router-dom";
 import HomeCard from "../shared/components/HomeCard";
 import HomeDetails from "../shared/components/HomeDetails/HomeDetails";
 import { Context } from "../state/context";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretRight } from "@fortawesome/free-solid-svg-icons";
 import { addCommas } from "../shared/components/methods";
 
 const HomesList: React.FC = () => {
